@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Platform } from "react-native";
 import SearchIcon from "../assets/search-icon.svg";
 
 interface SearchBarProps {
@@ -14,10 +14,21 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   placeholder = "Search",
 }) => {
   return (
-    <View className="flex-row items-center bg-white rounded-[8px] px-3 py-1 border border-[#CBD5E1]">
-      <SearchIcon width={20} height={20} color="#64748b" />
+    <View
+      className={`flex-row items-center bg-white rounded-[8px] px-3 py-1 border border-[#CBD5E1] ${
+        Platform.OS === "ios" ? "h-[60px] " : null
+      }`}
+    >
+      <SearchIcon
+        width={20}
+        height={20}
+        color="#64748b"
+        className={` ${Platform.OS === "ios" ? "ml-2" : null} `}
+      />
       <TextInput
-        className="flex-1 ml-1 font-poppins text-[14px] text-gray-800"
+        className={`  flex-1 font-poppins text-[14px] text-gray-800 ${
+          Platform.OS === "ios" ? "ml-3 " : "ml-1"
+        }`}
         placeholder={placeholder}
         placeholderTextColor="#94a3b8"
         value={value}

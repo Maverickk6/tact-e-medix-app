@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+  Platform,
 } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { usePatientsStore } from "../store/usePatientsStore";
@@ -36,7 +37,11 @@ export const PatientsScreen = () => {
   return (
     <SafeAreaProvider className="flex-1 bg-[#F8FAFC]">
       {/* Header */}
-      <View className="px-5 py-4 border-b border-gray-100 mb-3 mt-8">
+      <View
+        className={`px-5 py-4 border-b border-gray-100 mb-3 mt-8 ${
+          Platform.OS === "ios" ? "mt-12" : null
+        }`}
+      >
         <Text className="text-xl text-center font-poppins-bold text-gray-800">
           Patients
         </Text>

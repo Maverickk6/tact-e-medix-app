@@ -124,20 +124,22 @@ export const PatientCard: React.FC<PatientCardProps> = ({ patient }) => {
             {/* Consultation Notes Button */}
 
             <View className="flex-row justify-between">
-              <View className="py-1 px-3 border border-[#20beb8] rounded-3xl items-center justify-center min-w-[140px]">
+              <View
+                className={`${
+                  Platform.OS === "ios" ? "h-[34px]" : null
+                } px-3 border border-[#20beb8] rounded-3xl items-center justify-center min-w-[140px]`}
+              >
                 <Text className="font-poppins-medium text-[#20beb8]">
                   View profile
                 </Text>
               </View>
               <TouchableOpacity
                 onPress={() => setShowNotes(true)}
-                className="bg-[#20beb8] border-gray-200 px-3 py-1 rounded-3xl flex-row items-center justify-between"
+                className="bg-[#20beb8] border-gray-200 px-6 py-1 rounded-3xl flex-row items-center justify-between"
               >
-                <View className="flex-row items-center px-3">
-                  <Text className="font-poppins-medium text-white">
-                    Consultation Notes
-                  </Text>
-                </View>
+                <Text className="font-poppins-medium text-white">
+                  Consultation Notes
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
